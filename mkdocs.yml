@@ -1,7 +1,7 @@
 # Project information
 site_name: My MkDocs Project
 site_description: 'An example MkDocs project using the Material theme'
-site_url: 'https://benie-joy-possi.github.io/mk-docs'  # Change this to your site's URL
+site_url: 'https://benie-joy-possi.github.io/mk-docs'  # Change this to my site's URL
 
 # Theme settings
 theme:
@@ -22,4 +22,4 @@ markdown_extensions:
 # Repository configuration (for the edit link on pages)
 repo_name: benie-joy-possi/mk-docs
 repo_url: https://github.com/benie-joy-possi/mk-docs
-edit_uri: edit/main/docs/
+edit_uri: edit/master/docs/
