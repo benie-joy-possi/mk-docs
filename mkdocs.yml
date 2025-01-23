@@ -5,7 +5,8 @@ site_url: 'https://benie-joy-possi.github.io/mk-docs'  # Change this to my site'
 
 # Theme settings
 theme:
-  name: material
+  name: bootstrap
+
 
 # Navbar settings (site structure)
 nav:
