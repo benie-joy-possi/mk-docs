@@ -1,0 +1,43 @@
+name: ci
+
+on:
+  push:
+    branches: main
+
+jobs:
+  login:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+    
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
+      # Build the Docker image first
+      - uses: docker/build-push-action@v4
+        with:
+          push: false
+          tags: ghcr.io/benie-joy-possi/mkdocs:latest
+     
+     
+      - run: docker images 
+
+       #Slim it!
+      - uses: kitabisa/docker-slim-action@v1
+        env:
+          DSLIM_HTTP_PROBE: false
+        with:
+          target: ghcr.io/benie-joy-possi/mkdocs
+          tag: "slim"
+          
+      - run: docker images 
+
+      # Push to the registry
+      - run: docker image push "ghcr.io/benie-joy-possi/mkdocs" --all-tags          
