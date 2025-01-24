@@ -24,7 +24,9 @@ jobs:
       - uses: docker/build-push-action@v4
         with:
           push: false
-          tags: ghcr.io/benie-joy-possi/mkdocs:latest
+          tags: 
+             ghcr.io/${{ vars.REPOSITORY }}:latest
+             ghcr.io/${{ vars.REPOSITORY }}:${{ github.run_number }}
      
      
       - run: docker images 
